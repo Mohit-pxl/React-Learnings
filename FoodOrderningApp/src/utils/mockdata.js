@@ -1,6 +1,3 @@
-import React from "react";
-import {createRoot} from "react-dom/client";
-
 
 
 const resList = [
@@ -332,69 +329,4 @@ const resList = [
 }
 ]
 
-
-const Header=()=>{
-    return(
-        <div className="header">
-            <div className="logo-container">
-                <img className="logo" src={"https://cdn.dribbble.com/userupload/4288549/file/original-438b97178ade9d02cb34fd941adc6357.jpg?resize=752x564&vertical=center"}/>
-                </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-    )
-}
-
-
-
-
-
-
-const ResCard=(props)=>{
-    const {resData}=props;
-    const {id,cloudinaryImageId,name,cuisines,costForTwo,areaName}=resData?.info
-    return(
-        <div className="res-card">
-            <img className="res-logo" alt="res-logo" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +cloudinaryImageId }></img>
-            <h3>{name}</h3>
-            <h4>{cuisines.join(", ")}</h4>
-            <h5>{costForTwo}</h5>
-            <h5>{areaName}</h5>
-        </div>
-    )
-
-}
-
-const Body=()=>{
-    return(<div className="body">
-        <div className="search-bar">
-            search
-        </div>
-        <div className="res-container">
-            {
-                resList.map((restaurant)=>(
-                <ResCard key={restaurant.info.id} resData={restaurant}/>
-                ))
-            }
-        </div>
-    </div>
-    )
-}
-
-const AppLayout=()=>{
-    return(
-        <div className="app">
-            <Header/>
-            <Body/>
-        </div>
-    )
-}
-
-const root=createRoot(document.getElementById("root"));
-root.render(<AppLayout/>);
+export default resList;
